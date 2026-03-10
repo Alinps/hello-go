@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 func main() {
+	var name string
 	var age int
-	fmt.Print("Enter your age: ")
-	fmt.Scan(&age)
-	if age >= 18 {
-		fmt.Println("Eligible to vote")
-	} else {
-		fmt.Println("Not eligible to vote")
-	}
+	var place string
+	fmt.Print("Enter name, age and place: ")
+	fmt.Scan(&name, &age,&place)
+	fmt.Println("Name: ", name)
+	fmt.Println("Age: ", age)
+	fmt.Println("Place",place)
 }
