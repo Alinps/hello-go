@@ -3,18 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	var name string
-	fmt.Print("Enter the day: ")
-	fmt.Scan(&name)
-	switch name {
-	case "Monday":
-		fmt.Println("Starting of the week")
-	case "Friday":
-		fmt.Println("Weekend coming")
-	case "Sunday":
-		fmt.Println("Weekend")
-	default:
-		fmt.Println("Invalid day")
+	var age int
+	fmt.Print("Enter your age: ")
+	fmt.Scan(&age)
+	if age >= 18 {
+		fmt.Println("Eligible to vote")
+	} else {
+		fmt.Println("Not eligible to vote")
 	}
-
 }
