@@ -7,13 +7,10 @@ import (
 )
 
 func main() {
+	var text string
 	reader := bufio.NewReader(os.Stdin)
-	var name string
-	var age int
-	fmt.Print("Enter your name: ")
-	name, _ = reader.ReadString('\n')
-	fmt.Print("Enter your age")
-	fmt.Scan(&age)
-	fmt.Println("Name: ", name)
-	fmt.Println("Age: ",age)
+	fmt.Print("Enter the text: ")
+	text, _ = reader.ReadString('\n')
+	fmt.Println("You typed: ", text)
+
 }
