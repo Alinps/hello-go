@@ -1,17 +1,11 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+import "fmt"
 
 func main() {
-	var text string
-	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Print("Enter the text: ")
-	scanner.Scan()
-	text = scanner.Text()
-	fmt.Println("You typed: ", text)
+
+	for i := 10; i >=0; i-- {
+		fmt.Println(i)
+	}
 
 }
