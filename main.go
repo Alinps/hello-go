@@ -8,9 +8,10 @@ import (
 
 func main() {
 	var text string
-	reader := bufio.NewReader(os.Stdin)
+	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Print("Enter the text: ")
-	text, _ = reader.ReadString('\n')
+	scanner.Scan()
+	text = scanner.Text()
 	fmt.Println("You typed: ", text)
 
 }
