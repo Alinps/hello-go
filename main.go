@@ -12,7 +12,13 @@ func divide(a int, b int) (int, error) {
 	return a / b, nil
 }
 func main() {
-	result, err := divide(10, 0)
+	var a int
+	var b int
+	fmt.Print("Enter the first number: ")
+	fmt.Scan(&a)
+	fmt.Print("Enter the second number: ")
+	fmt.Scan(&b)
+	result, err := divide(a, b)
 	if err != nil {
 		fmt.Println("Error: ", err)
 		return
