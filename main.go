@@ -1,18 +1,21 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-	"reflect"
 )
 
+func divide(a int, b int) (int, error) {
+	if b == 0 {
+		return 0, errors.New("Cannot divide by zero")
+	}
+	return a / b, nil
+}
 func main() {
-	var name string = "Alin"
-	var age int = 24
-	var isActive bool = true
-	var a float64 = 25.9
-	var b int = 25
-	fmt.Println("type of name:", reflect.TypeOf(name))
-	fmt.Println("type of age: ", reflect.TypeOf(age))
-	fmt.Println("type of isActive: ", reflect.TypeOf(isActive))
-	fmt.Println("sum of float and int after explicit type conversion: ", float64(b)+a)
+	result, err := divide(10, 0)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		return
+	}
+	fmt.Println("Result ", result)
 }
