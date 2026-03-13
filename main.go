@@ -26,14 +26,14 @@ func main() {
 		"JavaScript": "Express.js",
 	}
 	languages["C#"] = "ASP.net"
-	fmt.Println(languages)
-	var lan string
-	var framework string
-	fmt.Print("Enter the language: ")
-	fmt.Scan(&lan)
-	fmt.Print("Enter its frameworks: ")
-	fmt.Scan(&framework)
-	languages[lan] = framework
-	fmt.Println("Update map: ", languages)
+
+	value, exists := ages["Alinps"]
+	fmt.Println("Value: ", value)
+	fmt.Println("Exists", exists)
+	fmt.Println(len(ages))
+	fmt.Println("Iterating map")
+	for key, value := range ages {
+		fmt.Println(key, value)
+	}
 
 }
