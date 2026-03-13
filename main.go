@@ -5,39 +5,28 @@ import (
 )
 
 func main() {
-	var numbers [3]int
-	var name [4]string
-	var food [3]string
-
-	var cars [3]string = [3]string{"Mustang", "Ferrari", "lamborgini"}
-	var fruits [5]string = [5]string{"apple", "orange", "lemon", "watermelon"}
-	statuscode := [3]int{200, 300, 404}
-
-	name[0] = "Alin"
-	name[1] = "Aneesha"
-	name[2] = "Aleena"
-	name[3] = "Avanthika"
-
-	numbers[0] = 1
-	numbers[1] = 2
-	numbers[2] = 3
-
-	food[0] = "mandhi"
-	food[1] = "biriyani"
-	food[2] = "shawarma"
-
-	fmt.Println(numbers)
-	fmt.Println(name)
-	fmt.Println(food)
-	fmt.Println(cars)
-	fmt.Println(fruits)
-	for i := 0; i < len(fruits); i++ {
-		fmt.Println(fruits[i])
-	}
-	for i := 0; i < len(cars); i++ {
-		fmt.Printf("car %d: %s\n", i, cars[i])
-	}
-	for i := 0; i < len(statuscode); i++ {
-		fmt.Printf("Statuscode %d: %d\n", i, statuscode[i])
-	}
+	var number []int = []int{10, 20, 30}
+	var names []string = []string{"Alin", "Aneesha"}
+	var num [5]int = [5]int{1, 2, 3, 4, 5}
+	a := number
+	a[0] = 100
+	fmt.Println(number)
+	fmt.Println(a)
+	a = append(number, 10)
+	num2 := num[1:]
+	num3 := num[0:4]
+	num4 := num[1:]
+	fmt.Println(names)
+	number = append(number, 30, 40, 50)
+	fmt.Println(number)
+	names = append(names, "Aleena", "Avanthika")
+	fmt.Println(names)
+	fmt.Println(num)
+	fmt.Println(num2)
+	fmt.Println(num3)
+	fmt.Println(num4)
+	fmt.Println(len(names))
+	fmt.Println(cap(names))
+	fmt.Println(a)
+	fmt.Println(number)
 }
