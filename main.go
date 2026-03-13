@@ -5,28 +5,35 @@ import (
 )
 
 func main() {
-	var number []int = []int{10, 20, 30}
-	var names []string = []string{"Alin", "Aneesha"}
-	var num [5]int = [5]int{1, 2, 3, 4, 5}
-	a := number
-	a[0] = 100
-	fmt.Println(number)
-	fmt.Println(a)
-	a = append(number, 10)
-	num2 := num[1:]
-	num3 := num[0:4]
-	num4 := num[1:]
-	fmt.Println(names)
-	number = append(number, 30, 40, 50)
-	fmt.Println(number)
-	names = append(names, "Aleena", "Avanthika")
-	fmt.Println(names)
-	fmt.Println(num)
-	fmt.Println(num2)
-	fmt.Println(num3)
-	fmt.Println(num4)
-	fmt.Println(len(names))
-	fmt.Println(cap(names))
-	fmt.Println(a)
-	fmt.Println(number)
+
+	ages := map[string]int{
+		"Alin":      24,
+		"Aneesha":   22,
+		"Aleena":    15,
+		"Avanthika": 13,
+	}
+	fmt.Println(ages)
+	fmt.Println("Age of Aneesha: ", ages["Aneesha"])
+	fmt.Println("Age of Alin: ", ages["Alin"])
+	ages["Aleena"] = 16
+	ages["Roshni"] = 23
+	fmt.Println("Updated map: ", ages)
+
+	languages := map[string]string{
+		"Python":     "Django",
+		"Java":       "Spring boot",
+		"GoLang":     "Gin",
+		"JavaScript": "Express.js",
+	}
+	languages["C#"] = "ASP.net"
+	fmt.Println(languages)
+	var lan string
+	var framework string
+	fmt.Print("Enter the language: ")
+	fmt.Scan(&lan)
+	fmt.Print("Enter its frameworks: ")
+	fmt.Scan(&framework)
+	languages[lan] = framework
+	fmt.Println("Update map: ", languages)
+
 }
