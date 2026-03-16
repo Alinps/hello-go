@@ -4,46 +4,45 @@ import (
 	"fmt"
 )
 
-type User struct {
-	id    int
-	name  string
-	email string
+type BankAccount struct {
+	owner   string
+	balance float64
 }
 
-type Person struct {
-	id   int
-	name string
-	age  int
-	city string
+func (b *BankAccount) withdraw(amount float64) bool {
+	if amount > b.balance {
+		return false
+	}
+	b.balance = b.balance - amount
+	return true
+}
+
+func (b *BankAccount) deposit(amount float64) bool {
+	if amount < 0 {
+		return false
+	}
+	b.balance = b.balance + amount
+	return true
 }
 
 func main() {
-
-	user := User{
-		id:    1,
-		name:  "Alin",
-		email: "alinps@gmail.com",
+	account := BankAccount{
+		owner:   "Alin",
+		balance: 25000,
 	}
-
-	user2 := User{
-		id:    2,
-		name:  "Aneesha",
-		email: "aneesha@gmail.com",
+	withdrawSuccess := account.withdraw(5000)
+	if withdrawSuccess {
+		fmt.Println("Withdrawn successfully")
+		fmt.Println("Current balance: ", account.balance)
+	} else {
+		fmt.Println("Insufficient balance")
 	}
-
-	var p Person
-	p.id = 1
-	p.name = "Alin"
-	p.age = 24
-	p.city = "Trivandrum"
-
-	fmt.Println(user)
-	fmt.Println(user.name)
-	fmt.Println(user.id)
-	fmt.Println(user.email)
-	fmt.Println(user2.id)
-	fmt.Println(user2.email)
-
-	fmt.Println(p)
+	depositSuccess := account.deposit(50000)
+	if depositSuccess {
+		fmt.Println("Deposited successfully")
+		fmt.Println("Current balance: ", account.balance)
+	} else {
+		fmt.Println("Please deposite amount larger than 0")
+	}
 
 }
