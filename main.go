@@ -4,20 +4,46 @@ import (
 	"fmt"
 )
 
+type User struct {
+	id    int
+	name  string
+	email string
+}
+
+type Person struct {
+	id   int
+	name string
+	age  int
+	city string
+}
+
 func main() {
 
-	ages := map[string]int{
-		"Alin":      24,
-		"Aneesha":   22,
-		"Aleena":    15,
-		"Avanthika": 13,
+	user := User{
+		id:    1,
+		name:  "Alin",
+		email: "alinps@gmail.com",
 	}
-	headers := map[string]string{
-		"Content-type":  "application/json",
-		"Accept":        "application/json",
-		"Authorization": "Bearer token",
+
+	user2 := User{
+		id:    2,
+		name:  "Aneesha",
+		email: "aneesha@gmail.com",
 	}
-	fmt.Println(ages)
-	fmt.Println(headers)
+
+	var p Person
+	p.id = 1
+	p.name = "Alin"
+	p.age = 24
+	p.city = "Trivandrum"
+
+	fmt.Println(user)
+	fmt.Println(user.name)
+	fmt.Println(user.id)
+	fmt.Println(user.email)
+	fmt.Println(user2.id)
+	fmt.Println(user2.email)
+
+	fmt.Println(p)
 
 }
