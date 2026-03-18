@@ -6,25 +6,18 @@ import (
 )
 
 type User struct {
-	Name     string  `json:"name"`
-	Age      int     `json:"age"`
-	isActive bool    `json:"isactive"`
-	Weight   float64 `json:"weight"`
+	Name     string
+	Age      int
+	isActive bool
+	Weight   float64
 }
 
 func main() {
-	user := User{
-		Name:     "Alin",
-		Age:      25,
-		isActive: true,
-		Weight:   64.75,
-	}
-
-	data, err := json.Marshal(user)
+	jsonData := `{"Name":"Alin","Age":25,"isActive":true,"Weight":64.5}`
+	var user User
+	err := json.Unmarshal([]byte(jsonData), &user)
 	if err != nil {
 		fmt.Println("Error: ", err)
 	}
-
-	fmt.Println(string(data))
-	fmt.Println(data)
+	fmt.Println(user.Name)
 }
