@@ -2,73 +2,37 @@ package main
 
 import "fmt"
 
-type Speaker interface {
-	speak()
-}
-type Vehicle interface {
-	start()
-	stop()
-	accelerate()
+type Payment interface {
+	pay(amount float64)
 }
 
-type Dog struct {
-	Name string
+type Creditcard struct{}
+type Upi struct{}
+type Paypal struct{}
+
+func (c Creditcard) pay(amount float64) {
+	fmt.Println("payment done using creditcard ", amount)
 }
 
-type Car struct {
-	FuelType string
+func (u Upi) pay(amount float64) {
+	fmt.Println("Payment done using UPI ", amount)
 }
 
-type Truck struct {
-	FuelType string
-}
-
-func (c Car) start() {
-	fmt.Println("Car is starting...", c.FuelType)
-}
-
-func (c Car) stop() {
-	fmt.Println("Car stopped...", c.FuelType)
-}
-
-func (c Car) accelerate() {
-	fmt.Println("Car is accelerating", c.FuelType)
-}
-
-func (d Dog) speak() {
-	fmt.Println("Barks", d.Name)
-}
-
-func (t Truck) start() {
-	fmt.Println("Truck is starting...", t.FuelType)
-}
-
-func (t Truck) stop() {
-	fmt.Println("Truck stopped...", t.FuelType)
-}
-
-func (t Truck) accelerate() {
-	fmt.Println("Truck is accelerating", t.FuelType)
+func (p Paypal) pay(amount float64) {
+	fmt.Println("Payment done using Paypal ", amount)
 }
 
 func main() {
-	var s Speaker
-	s = Dog{
-		Name: "Bruno",
-	}
-	var c Vehicle
-	var t Vehicle
-	c = Car{
-		FuelType: "Petrol",
-	}
-	t = Truck{
-		FuelType: "Diesel",
-	}
-	c.start()
-	c.stop()
-	c.accelerate()
-	t.start()
-	t.stop()
-	t.accelerate()
-	s.speak()
+	var c Payment
+	var u Payment
+	var p Payment
+
+	c = Creditcard{}
+	u = Upi{}
+	p = Paypal{}
+
+	c.pay(1000)
+	u.pay(2000)
+	p.pay(2000)
+
 }
