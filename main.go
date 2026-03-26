@@ -2,37 +2,43 @@ package main
 
 import "fmt"
 
-type Payment interface {
-	pay(amount float64)
+type Notification interface {
+	Send()
 }
 
-type Creditcard struct{}
-type Upi struct{}
-type Paypal struct{}
+type EmailService struct{}
 
-func (c Creditcard) pay(amount float64) {
-	fmt.Println("payment done using creditcard ", amount)
+func (e EmailService) Send() {
+	fmt.Println("email send")
 }
 
-func (u Upi) pay(amount float64) {
-	fmt.Println("Payment done using UPI ", amount)
+type SMSService struct{}
+
+func (s SMSService) Send() {
+	fmt.Println("SMS send")
 }
 
-func (p Paypal) pay(amount float64) {
-	fmt.Println("Payment done using Paypal ", amount)
+type UserService struct {
+	notifier1 Notification
+	notifier2 Notification
+}
+
+func (u UserService) RegisterUser() {
+	u.notifier1.Send()
+	u.notifier2.Send()
 }
 
 func main() {
-	var c Payment
-	var u Payment
-	var p Payment
+	var email Notification
+	email = EmailService{}
+	var sms Notification
+	sms = SMSService{}
 
-	c = Creditcard{}
-	u = Upi{}
-	p = Paypal{}
-
-	c.pay(1000)
-	u.pay(2000)
-	p.pay(2000)
+	var user UserService
+	user = UserService{
+		notifier1: email,
+		notifier2: sms,
+	}
+	user.RegisterUser()
 
 }
