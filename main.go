@@ -6,20 +6,20 @@ type Engine struct {
 	power int
 }
 
-func (e Engine) getPower() {
-	fmt.Println(e.power)
+func (e Engine) start() {
+	fmt.Println("Engine started")
 }
 
 type Car struct {
-	engine Engine
-	brand  string
+	Engine
+	brand string
 }
 
 func main() {
 	car := Car{
-		engine: Engine{power: 350},
-		brand:  "toyota",
+		Engine: Engine{power: 500},
+		brand:  "BMW",
 	}
-	car.engine.getPower()
-	fmt.Println(car.brand)
+
+	car.start()
 }
