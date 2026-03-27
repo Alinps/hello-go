@@ -2,43 +2,24 @@ package main
 
 import "fmt"
 
-type Notification interface {
-	Send()
+type Engine struct {
+	power int
 }
 
-type EmailService struct{}
-
-func (e EmailService) Send() {
-	fmt.Println("email send")
+func (e Engine) getPower() {
+	fmt.Println(e.power)
 }
 
-type SMSService struct{}
-
-func (s SMSService) Send() {
-	fmt.Println("SMS send")
-}
-
-type UserService struct {
-	notifier1 Notification
-	notifier2 Notification
-}
-
-func (u UserService) RegisterUser() {
-	u.notifier1.Send()
-	u.notifier2.Send()
+type Car struct {
+	engine Engine
+	brand  string
 }
 
 func main() {
-	var email Notification
-	email = EmailService{}
-	var sms Notification
-	sms = SMSService{}
-
-	var user UserService
-	user = UserService{
-		notifier1: email,
-		notifier2: sms,
+	car := Car{
+		engine: Engine{power: 350},
+		brand:  "toyota",
 	}
-	user.RegisterUser()
-
+	car.engine.getPower()
+	fmt.Println(car.brand)
 }
