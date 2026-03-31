@@ -2,14 +2,20 @@ package main
 
 import "fmt"
 
+type User struct {
+	name string
+}
+
+func update(u *User) {
+	u.name = "updated"
+}
+
 func main() {
-	var p *string
-	var v string
-	v = "alin"
-	p = &v
-	fmt.Println("v:", v)
-	fmt.Println("p:", p)
-	fmt.Println("*p:", *p)
-	*p = "Tony Stark"
-	fmt.Println("After modifying: ", *p)
+
+	var u User
+	u = User{
+		name: "Alin",
+	}
+	update(&u)
+	fmt.Println(u.name)
 }
