@@ -2,12 +2,14 @@ package main
 
 import "fmt"
 
-func change(x *int) {
-	*x = 100
-}
-
 func main() {
-	a := 20
-	change(&a)
-	fmt.Println(a)
+	var p *string
+	var v string
+	v = "alin"
+	p = &v
+	fmt.Println("v:", v)
+	fmt.Println("p:", p)
+	fmt.Println("*p:", *p)
+	*p = "Tony Stark"
+	fmt.Println("After modifying: ", *p)
 }
