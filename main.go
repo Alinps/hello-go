@@ -1,25 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
-type Engine struct {
-	power int
-}
-
-func (e Engine) start() {
-	fmt.Println("Engine started")
-}
-
-type Car struct {
-	Engine
-	brand string
+func task(wg *sync.WaitGroup) {
+	defer wg.Done() // mark task complete
+	fmt.Println("Task done")
 }
 
 func main() {
-	car := Car{
-		Engine: Engine{power: 500},
-		brand:  "BMW",
-	}
+	var wg sync.WaitGroup
 
-	car.start()
+	wg.Add(1)        // number of goroutines
+	go task(&wg)     // run goroutine
+
+	wg.Wait()        // wait until done
 }
